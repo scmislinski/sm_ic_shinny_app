@@ -32,9 +32,9 @@ ui <- fluidPage(
       fluidPage(
         fluidRow(
           column(width = 4,
-                 selectInput("select", label = h3("Choose to Display on graph"),
-                             choices = list("Year" = 1, "Island" = 2, "Ahupua'a (Watershed)" = 3),
-                             selected = 1),
+                 checkboxGroupInput("checkGroup", label = h3("Choose Year"),
+                                    choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+                                    selected = 1),
                  ), #End of column 1 tab 2
           column(width = 8,
                  h3('Fires map (tmap)'),
