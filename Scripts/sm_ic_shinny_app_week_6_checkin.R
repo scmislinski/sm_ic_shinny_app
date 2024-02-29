@@ -55,10 +55,10 @@ ui <- fluidPage(
           ) #End of column 2 tab 3
         )#End of fluid row tab 3
       ) #End of fluid page tab 3
-    ), ################################## END OF TAB 3
+    ), ####################################### END OF TAB 3
 
     tabPanel(
-      title = "Tab 4",
+      title = "Model Comparison",
       fluidPage(
         fluidRow(
           column(width = 4,
@@ -69,12 +69,12 @@ ui <- fluidPage(
           ) #End of column 2 tab 4
         )#End of fluid row tab 4
       ) #End of fluid page tab 4
-    ), ################################### END OF TAB 4
+    ), ############################################# END OF TAB 4
 
     tabPanel(
       title = "Citations",
       p('Citations text')
-    ), ####################################### END OF TAB 5
+    ), ############################################ END OF TAB 5
   ), #end of tabsetPanel
 )### End of fluidPage function
 
