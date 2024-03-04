@@ -15,6 +15,9 @@ library(feasts)
 library(fable)
 library(bslib)
 
+################ DATA ###############################################
+
+fires_all_sf <- read_sf(here("data","fires_tmap_sf.shp"))
 ############# USER INTERFACE ########################################
 
 ui <- fluidPage(
@@ -33,7 +36,14 @@ ui <- fluidPage(
         fluidRow(
           column(width = 4,
                  checkboxGroupInput("checkGroup", label = h3("Choose Year"),
-                                    choices = list("Choice 1" = 1, "Choice 2" = 2, "Choice 3" = 3),
+                                    choices = list("1999" = 1, "2000" = 2, "2001" = 3,
+                                                   "2002" = 4, "2003" = 5, "2004" = 6,
+                                                   "2005" = 7, "2006" = 8, "2007"= 9,
+                                                   "2008" = 10, "2009" = 11, "2010" = 12,
+                                                   "2011" = 13, "2012" = 14, "2013" = 15,
+                                                   "2014"= 16, "2015" = 17, "2016" = 18,
+                                                   "2017" = 19, "2018" = 20, "2019" = 21,
+                                                   "2020" = 22, "2021" = 23, "2022" = 24),
                                     selected = 1),
                  ), #End of column 1 tab 2
           column(width = 8,
