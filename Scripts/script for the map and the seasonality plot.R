@@ -25,7 +25,7 @@ fires_tmap_sf <- fires_all_sf %>%
 ##################Tmap Need to figure out how to select specific years
 tmap_mode(mode = "view")
 tm_shape(fires_tmap_sf) +
-  tm_fill("area_ha", palette = "Reds") +
+  tm_fill("area_ha", palette = "OrRd") +
   tm_layout(title = "Fires by Area for the Islands of Hawai'i", title.size = 1)
 
 
@@ -33,12 +33,16 @@ tm_shape(fires_tmap_sf) +
 
 ################# Seasonality plot by month
 #having issues with the date
-fires_tmap_sf #change to a data frame
-fires_all_sf %>%
-  mutate(date = yyyymmdd(date)) %>%
+fires_df <- st_drop_geometry(fires_all_sf)
+
+
+fires_ts <- fires_df %>%
+  mutate(date = lubridate :: ymd(yyyymmdd)) %>%
   as_tsibble(key = NULL,
              index = date) %>%
-  group_by(fire_month) %>%
+  group_by(fire_month)
+
+
   gg_season(y = area, pal = hcl.colors(n = 9)) +
   theme_light()+
   labs(x= 'Year', y= 'area_ha') +
