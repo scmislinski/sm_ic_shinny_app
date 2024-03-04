@@ -19,7 +19,8 @@ library(bslib)
 
 fires_all_sf <- read_sf(here("data","fires_tmap_sf.shp"))
 fires_tmap_sf <- fires_all_sf %>%
-  select(year, fire_month, day, area_ha, county, island, geometry)
+  select(year, fire_month, day, area_ha, county, island, geometry) %>%
+  mutate(year = as.integer(year))
 ############# USER INTERFACE ########################################
 
 ui <- fluidPage(
@@ -37,29 +38,21 @@ ui <- fluidPage(
       fluidPage(
         fluidRow(
           column(width = 4,
-                 radioButtons(
-                   inputId = "year_tmap",
-                   label = "Choose a Year",
-                   choices = list("1999" = 1, "2000" = 2, "2001" = 3,
-                                  "2002" = 4, "2003" = 5, "2004" = 6,
-                                  "2005" = 7, "2006" = 8, "2007"= 9,
-                                  "2008" = 10, "2009" = 11, "2010" = 12,
-                                  "2011" = 13, "2012" = 14, "2013" = 15,
-                                  "2014"= 16, "2015" = 17, "2016" = 18,
-                                  "2017" = 19, "2018" = 20, "2019" = 21,
-                                  "2020" = 22, "2021" = 23, "2022" = 24)
+                 selectInput("year_tmap", "Choose Year",
+                   choices = fires_tmap_sf$year %>% unique() %>% sort(),
+                   selected = NULL, multiple = TRUE, selectize = TRUE
                  )
                ), #End of column 1 tab 2
           column(width = 8,
-                 h3('map',
-                    plotOutput(outputId = 'fires_plot')
+                 h3('Map'),
+                 plotOutput(outputId = 'fires_plot')
           ) #End of column 2 tab 2
         )#End of fluid row tab 2
       ) #End of fluid page tab 2
     ), ####################################################### END OF TAB 2
 
     tabPanel(
-      title = "Seasonallity",
+      title = "Seasonality",
       fluidPage(
         fluidRow(
           column(width = 4,
@@ -73,7 +66,7 @@ ui <- fluidPage(
     ), ####################################### END OF TAB 3
 
     tabPanel(
-      title = "Model Comparison",
+      title = "Political Response: Text Analysis",
       fluidPage(
         fluidRow(
           column(width = 4,
@@ -91,7 +84,7 @@ ui <- fluidPage(
       p('Citations text')
     ), ############################################ END OF TAB 5
   ), #end of tabsetPanel
-))### End of fluidPage function
+)### End of fluidPage function
 
 
 
@@ -100,8 +93,10 @@ ui <- fluidPage(
 
 server <- function(input, output) {
   year_tmap <- reactive({
+    message("in_tmap", class(input$year_tmap))
+
     filtered_data <- fires_tmap_sf %>%
-      filter(year == input$year_tmap)
+      filter(year == as.integer(input$year_tmap))
     return(filtered_data)
   }) ### end of year_tmap reactive
   output$fires_plot <- renderPlot({
@@ -109,7 +104,7 @@ server <- function(input, output) {
     tm_shape(year_tmap()) +
       tm_fill("area_ha", palette = "OrRd") +
       tm_layout(title = "Fires by Area for the Islands of Hawai'i 1999-2022", title.size = 1)
-  })
+  }) #### end of tmap plot
 }
 
 
