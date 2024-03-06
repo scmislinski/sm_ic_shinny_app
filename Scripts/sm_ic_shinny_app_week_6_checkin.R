@@ -40,12 +40,12 @@ ui <- fluidPage(
           column(width = 4,
                  selectInput("year_tmap", "Choose Year",
                    choices = fires_tmap_sf$year %>% unique() %>% sort(),
-                   selected = NULL, multiple = TRUE, selectize = TRUE
+                   selected = "1999", multiple = TRUE, selectize = TRUE
                  )
                ), #End of column 1 tab 2
           column(width = 8,
                  h3('Map'),
-                 plotOutput(outputId = 'fires_plot')
+                 tmapOutput(outputId = 'fires_plot')
           ) #End of column 2 tab 2
         )#End of fluid row tab 2
       ) #End of fluid page tab 2
@@ -96,10 +96,10 @@ server <- function(input, output) {
     message("in_tmap", class(input$year_tmap))
 
     filtered_data <- fires_tmap_sf %>%
-      filter(year == as.integer(input$year_tmap))
+      filter(year %in% as.integer(input$year_tmap))
     return(filtered_data)
   }) ### end of year_tmap reactive
-  output$fires_plot <- renderPlot({
+  output$fires_plot <- renderTmap({
     tmap_mode(mode = "view")
     tm_shape(year_tmap()) +
       tm_fill("area_ha", palette = "OrRd") +
