@@ -20,6 +20,21 @@ fires_all_sf <- read_sf(here("data","2022_1999_Hawaii_large_Fire_Perimeters_UH_N
 fires_tmap_sf <- fires_all_sf %>%
   select(year, fire_month, day, area_ha, county, island, geometry)
 
+
+fires_df <- st_drop_geometry(fires_all_sf) %>%
+  group_by(year, month, island) %>%
+  summarize(area_per_month = sum(area_ha)) %>%
+  mutate(date = make_date(year, month))
+
+fires_ts <- fires_df %>%
+  mutate(date = lubridate :: ymd(date)) %>%
+  as_tsibble(key = island,
+             index = date) %>%
+  group_by(year)
+
+
+
+
 #st_write(fires_tmap_sf, here('data/fires_tmap_sf.shp'))
 
 ##################Tmap Need to figure out how to select specific years

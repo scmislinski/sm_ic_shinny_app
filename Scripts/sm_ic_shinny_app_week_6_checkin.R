@@ -101,7 +101,19 @@ ui <- fluidPage(
         )#End of fluid row tab 4
       ) #End of fluid page tab 4
     ), ############################################# END OF TAB 4
-
+    tabPanel(
+      title = "Land use",
+      fluidPage(
+        fluidRow(
+          column(width = 4,
+                 h3('column 1 header'),
+          ), #End of column 1 tab 4
+          column(width = 8,
+                 h3('column 2 header'),
+          ) #End of column 2 tab 4
+        )#End of fluid row tab 4
+      ) #End of fluid page tab 4
+    ), ############################################# End of tab 5
     tabPanel(
       title = "Citations",
       p('Citations text')
@@ -129,7 +141,6 @@ server <- function(input, output) {
       tm_fill("area_ha", palette = "OrRd") +
       tm_layout(title = "Fires by Area for the Islands of Hawai'i 1999-2022", title.size = 1)
   }) #### end of tmap plot
-
   year_season <- reactive({
     filtered_season <- fires_ts %>%
       filter(year %in% as.integer(input$year_season))
