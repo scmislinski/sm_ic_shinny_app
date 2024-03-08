@@ -14,6 +14,7 @@ library(tsibble)
 library(feasts)
 library(fable)
 library(bslib)
+library(janitor)
 
 ################ DATA ###############################################
 #### for the tmap
@@ -80,7 +81,8 @@ ui <- fluidPage(
                  )
           ), #End of column 1 tab 3
           column(width = 8,
-                 h3('Seasonal plots of past fires'),
+                 h3('Seasonal Plots of Fires From 1999 to 2022'),
+                 plotOutput(outputId = 'seasonal_plot')
           ) #End of column 2 tab 3
         )#End of fluid row tab 3
       ) #End of fluid page tab 3
@@ -120,12 +122,28 @@ server <- function(input, output) {
       filter(year %in% as.integer(input$year_tmap))
     return(filtered_data)
   }) ### end of year_tmap reactive
+
   output$fires_plot <- renderTmap({
     tmap_mode(mode = "view")
     tm_shape(year_tmap()) +
       tm_fill("area_ha", palette = "OrRd") +
       tm_layout(title = "Fires by Area for the Islands of Hawai'i 1999-2022", title.size = 1)
   }) #### end of tmap plot
+
+  year_season <- reactive({
+    filtered_season <- fires_ts %>%
+      filter(year %in% as.integer(input$year_season))
+    return(filtered_data)
+  }) ####### End of Season plot reactive
+  output$seasonal_plot <- renderPlot({
+    ggplot(fires_ts, aes(x = month, y = area_per_month, color = year)) +
+      geom_line() +
+      labs(x = 'Month of the Year',
+           y = 'Area Burned (ha)',
+           title = 'Seansonality Trends') +
+      theme_classic()
+  })
+
 }
 
 
