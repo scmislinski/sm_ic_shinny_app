@@ -33,20 +33,33 @@ tm_shape(fires_tmap_sf) +
 
 ################# Seasonality plot by month
 #having issues with the date
-fires_df <- st_drop_geometry(fires_all_sf)
 
+fires_df <- st_drop_geometry(fires_all_sf) %>%
+  group_by(year, month, island) %>%
+  summarize(area_per_month = sum(area_ha)) %>%
+  mutate(date = make_date(year, month))
 
 fires_ts <- fires_df %>%
-  mutate(date = lubridate :: ymd(yyyymmdd)) %>%
-  as_tsibble(key = NULL,
+  mutate(date = lubridate :: ymd(date)) %>%
+  as_tsibble(key = island,
              index = date) %>%
-  group_by(fire_month)
+  group_by(year)
 
 
-  gg_season(y = area, pal = hcl.colors(n = 9)) +
-  theme_light()+
-  labs(x= 'Year', y= 'area_ha') +
-  ggtitle("Seasonal Patterns Fires in Hawai'i")
+
+season_plot <- ggplot(fires_ts, aes(x = month, y = area_per_month, color = year)) +
+  geom_line() +
+  labs(x = 'Month of the Year',
+       y = 'Area Burned (ha)',
+       title = 'Seansonality Trends') +
+  theme_classic()
+season_plot
+
+#fires_ts %>%
+ # gg_season(y = area_per_month, pal = hcl.colors(n = 9)) +
+  #theme_light()+
+ # labs(x= 'Year', y= 'area_ha') +
+  #ggtitle("Seasonal Patterns Fires in Hawai'i")
 
 
 

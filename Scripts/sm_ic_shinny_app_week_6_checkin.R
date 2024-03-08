@@ -16,11 +16,29 @@ library(fable)
 library(bslib)
 
 ################ DATA ###############################################
+#### for the tmap
+fires_all_sf <- read_sf(here("data","2022_1999_Hawaii_large_Fire_Perimeters_UH_NREM", "fires_1999_2022.shp")) %>%
+  clean_names() %>%
+ mutate(year = as.integer(year))
 
-fires_all_sf <- read_sf(here("data","fires_tmap_sf.shp"))
+
 fires_tmap_sf <- fires_all_sf %>%
-  select(year, fire_month, day, area_ha, county, island, geometry) %>%
-  mutate(year = as.integer(year))
+  select(year, fire_month, day, area_ha, county, island, geometry)
+
+
+##### for the seasons plot
+
+fires_df <- st_drop_geometry(fires_all_sf) %>%
+  group_by(year, month, island) %>%
+  summarize(area_per_month = sum(area_ha)) %>%
+  mutate(date = make_date(year, month))
+
+fires_ts <- fires_df %>%
+  mutate(date = lubridate :: ymd(date)) %>%
+  as_tsibble(key = island,
+             index = date) %>%
+  group_by(year)
+
 ############# USER INTERFACE ########################################
 
 ui <- fluidPage(
@@ -56,7 +74,10 @@ ui <- fluidPage(
       fluidPage(
         fluidRow(
           column(width = 4,
-                 h3('Widget select box to select which year to highlight'),
+                 selectInput("year_season", "Choose Year",
+                             choices = fires_ts$year %>% unique() %>% sort(),
+                             selected = "1999", multiple = TRUE, selectize = TRUE
+                 )
           ), #End of column 1 tab 3
           column(width = 8,
                  h3('Seasonal plots of past fires'),
