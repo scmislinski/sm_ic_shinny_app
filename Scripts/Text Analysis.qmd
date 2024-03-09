@@ -1,0 +1,24 @@
+---
+title: "Text Analysis"
+format: html
+editor: visual
+---
+
+## 
+
+Libraries
+
+```{r}
+library(tidyverse)
+library(tidytext)
+library(pdftools)
+library(here)
+library(textdata)
+
+```
+
+Read in text
+
+```{r}
+
+```

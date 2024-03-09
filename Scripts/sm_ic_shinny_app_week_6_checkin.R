@@ -30,13 +30,13 @@ fires_tmap_sf <- fires_all_sf %>%
 ##### for the seasons plot
 
 fires_df <- st_drop_geometry(fires_all_sf) %>%
-  group_by(year, month, island) %>%
+  group_by(year, month) %>%
   summarize(area_per_month = sum(area_ha)) %>%
   mutate(date = make_date(year, month))
 
 fires_ts <- fires_df %>%
   mutate(date = lubridate :: ymd(date)) %>%
-  as_tsibble(key = island,
+  as_tsibble(key = NULL,
              index = date) %>%
   group_by(year)
 
@@ -125,7 +125,6 @@ ui <- fluidPage(
 
 
 ############ SERVER FUNCTION #########################################
-
 server <- function(input, output) {
   year_tmap <- reactive({
     message("in_tmap", class(input$year_tmap))
@@ -144,10 +143,11 @@ server <- function(input, output) {
   year_season <- reactive({
     filtered_season <- fires_ts %>%
       filter(year %in% as.integer(input$year_season))
-    return(filtered_data)
+    return(year_season)
+
   }) ####### End of Season plot reactive
   output$seasonal_plot <- renderPlot({
-    ggplot(fires_ts, aes(x = month, y = area_per_month, color = year)) +
+    ggplot(year_season(), aes(x = month, y = area_per_month, color = as.factor(year))) +
       geom_line() +
       labs(x = 'Month of the Year',
            y = 'Area Burned (ha)',
