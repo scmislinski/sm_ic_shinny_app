@@ -26,7 +26,7 @@ fires_percentage_gg <- ggplot(annual_fires, aes(x = year, y = percent_total_land
 fires_percentage_gg
 
 
-ggsave(here("Plots", "Precent_land.jpg"), fires_percentage_gg, width=6,
+ggsave(here("Plots", "Precent_land.png"), fires_percentage_gg, width=6,
        height=4, units="in", dpi=800)
 
 
