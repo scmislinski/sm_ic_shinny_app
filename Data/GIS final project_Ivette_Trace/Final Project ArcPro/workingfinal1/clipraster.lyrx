@@ -1,0 +1,739 @@
+{
+  "type" : "CIMLayerDocument",
+  "version" : "2.6.0",
+  "build" : 24783,
+  "layers" : [
+    "CIMPATH=map/clipraster.xml"
+  ],
+  "layerDefinitions" : [
+    {
+      "type" : "CIMRasterLayer",
+      "name" : "clipraster",
+      "uRI" : "CIMPATH=map/clipraster.xml",
+      "sourceModifiedTime" : {
+        "type" : "TimeInstant"
+      },
+      "useSourceMetadata" : true,
+      "description" : "clipraster",
+      "layerElevation" : {
+        "type" : "CIMLayerElevationSurface",
+        "mapElevationID" : "{A1686760-2EBB-4B23-A06B-CCF038E19DCD}"
+      },
+      "layerType" : "Operational",
+      "showLegends" : true,
+      "visibility" : true,
+      "displayCacheType" : "Permanent",
+      "maxDisplayCacheAge" : 5,
+      "showPopups" : true,
+      "serviceLayerID" : -1,
+      "refreshRate" : -1,
+      "refreshRateUnit" : "esriTimeUnitsSeconds",
+      "dataConnection" : {
+        "type" : "CIMStandardDataConnection",
+        "workspaceConnectionString" : "DATABASE=.\\final\\workingfinal1\\workingfinal1.gdb",
+        "workspaceFactory" : "FileGDB",
+        "dataset" : "clipraster",
+        "datasetType" : "esriDTRasterDataset"
+      },
+      "colorizer" : {
+        "type" : "CIMRasterUniqueValueColorizer",
+        "resamplingType" : "NearestNeighbor",
+        "noDataColor" : {
+          "type" : "CIMRGBColor",
+          "values" : [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "fieldName" : "Detailed_L",
+        "groups" : [
+          {
+            "type" : "CIMRasterUniqueValueGroup",
+            "classes" : [
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Closed ohia wet forest"
+                ],
+                "label" : "Closed ohia wet forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    159,
+                    220,
+                    82,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Closed koa-ohia wet forest"
+                ],
+                "label" : "Closed koa-ohia wet forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    142,
+                    95,
+                    244,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Open ohia wet forest"
+                ],
+                "label" : "Open ohia wet forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    76,
+                    214,
+                    207,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Open koa-ohia wet forest"
+                ],
+                "label" : "Open koa-ohia wet forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    242,
+                    164,
+                    98,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Closed ohia mesic forest"
+                ],
+                "label" : "Closed ohia mesic forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    82,
+                    148,
+                    224,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Closed koa-ohia mesic forest"
+                ],
+                "label" : "Closed koa-ohia mesic forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    243,
+                    111,
+                    211,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Open ohia mesic forest"
+                ],
+                "label" : "Open ohia mesic forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    127,
+                    141,
+                    88,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Open koa-ohia mesic forest"
+                ],
+                "label" : "Open koa-ohia mesic forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    111,
+                    45,
+                    131,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Closed ohia dry forest"
+                ],
+                "label" : "Closed ohia dry forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    244,
+                    107,
+                    116,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Mixed mamane-naio-native trees dry woodland"
+                ],
+                "label" : "Mixed mamane-naio-native trees dry woodland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    46,
+                    123,
+                    134,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Open ohia dry forest"
+                ],
+                "label" : "Open ohia dry forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    121,
+                    235,
+                    160,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Open koa-mamane dry forest"
+                ],
+                "label" : "Open koa-mamane dry forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    154,
+                    95,
+                    58,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Mixed native-alien wet forest"
+                ],
+                "label" : "Mixed native-alien wet forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    178,
+                    139,
+                    224,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Mixed native-alien mesic forest"
+                ],
+                "label" : "Mixed native-alien mesic forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    213,
+                    212,
+                    131,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien wet forest"
+                ],
+                "label" : "Alien wet forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    53,
+                    150,
+                    53,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien mesic forest"
+                ],
+                "label" : "Alien mesic forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    244,
+                    163,
+                    199,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien dry forest"
+                ],
+                "label" : "Alien dry forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    87,
+                    90,
+                    147,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Kiawe dry forest and shrubland"
+                ],
+                "label" : "Kiawe dry forest and shrubland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    215,
+                    156,
+                    142,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Plantation forest"
+                ],
+                "label" : "Plantation forest",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    181,
+                    64,
+                    127,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Native wet cliff community"
+                ],
+                "label" : "Native wet cliff community",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    145,
+                    198,
+                    225,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Native wet shrubland"
+                ],
+                "label" : "Native wet shrubland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    81,
+                    163,
+                    118,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Native mesic shrubland"
+                ],
+                "label" : "Native mesic shrubland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    86,
+                    233,
+                    91,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Native dry shrubland"
+                ],
+                "label" : "Native dry shrubland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    141,
+                    50,
+                    71,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Uluhe ferns and native shrubs"
+                ],
+                "label" : "Uluhe ferns and native shrubs",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    176,
+                    66,
+                    184,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Mixed native-alien wet shurbs and grass/sedges"
+                ],
+                "label" : "Mixed native-alien wet shurbs and grass/sedges",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    64,
+                    70,
+                    178,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien wet shrubland"
+                ],
+                "label" : "Alien wet shrubland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    219,
+                    127,
+                    250,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien mesic shrubland"
+                ],
+                "label" : "Alien mesic shrubland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    173,
+                    142,
+                    71,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien dry shrubland"
+                ],
+                "label" : "Alien dry shrubland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    135,
+                    190,
+                    105,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien wet grassland"
+                ],
+                "label" : "Alien wet grassland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    244,
+                    159,
+                    240,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien mesic grassland"
+                ],
+                "label" : "Alien mesic grassland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    249,
+                    92,
+                    158,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Alien dry grassland"
+                ],
+                "label" : "Alien dry grassland",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    239,
+                    243,
+                    112,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Wetland vegetation"
+                ],
+                "label" : "Wetland vegetation",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    103,
+                    148,
+                    186,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Cultivated agriculture"
+                ],
+                "label" : "Cultivated agriculture",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    195,
+                    243,
+                    150,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Developed open space"
+                ],
+                "label" : "Developed open space",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    132,
+                    87,
+                    196,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "High intensity developed"
+                ],
+                "label" : "High intensity developed",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    134,
+                    88,
+                    157,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Low intensity developed"
+                ],
+                "label" : "Low intensity developed",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    207,
+                    109,
+                    124,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Medium intensity developed"
+                ],
+                "label" : "Medium intensity developed",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    134,
+                    208,
+                    173,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Very sparse vegetation to unvegetated"
+                ],
+                "label" : "Very sparse vegetation to unvegetated",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    78,
+                    172,
+                    184,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  "Water"
+                ],
+                "label" : "Water",
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    187,
+                    123,
+                    180,
+                    100
+                  ]
+                }
+              },
+              {
+                "type" : "CIMRasterUniqueValueClass",
+                "values" : [
+                  ""
+                ],
+                "color" : {
+                  "type" : "CIMRGBColor",
+                  "values" : [
+                    163,
+                    139,
+                    103,
+                    100
+                  ]
+                }
+              }
+            ],
+            "heading" : "Detailed_L"
+          }
+        ],
+        "colorRamp" : {
+          "type" : "CIMRandomHSVColorRamp",
+          "maxH" : 360,
+          "minS" : 33,
+          "maxS" : 66,
+          "minV" : 50,
+          "maxV" : 99,
+          "minAlpha" : 100,
+          "maxAlpha" : 100
+        }
+      },
+      "attributeTable" : {
+        "type" : "CIMRasterTable",
+        "displayField" : "Value",
+        "editable" : true
+      }
+    }
+  ],
+  "elevationSurfaces" : [
+    {
+      "type" : "CIMMapElevationSurface",
+      "elevationMode" : "BaseGlobeSurface",
+      "name" : "Ground",
+      "verticalExaggeration" : 1,
+      "mapElevationID" : "{A1686760-2EBB-4B23-A06B-CCF038E19DCD}",
+      "color" : {
+        "type" : "CIMRGBColor",
+        "values" : [
+          255,
+          255,
+          255,
+          100
+        ]
+      },
+      "surfaceTINShadingMode" : "Smooth",
+      "visibility" : true,
+      "expanded" : true
+    }
+  ],
+  "rGBColorProfile" : "sRGB IEC61966-2.1",
+  "cMYKColorProfile" : "U.S. Web Coated (SWOP) v2"
+}

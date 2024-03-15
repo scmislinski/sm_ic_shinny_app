@@ -15,7 +15,10 @@ library(bslib)
 library(tidytext)
 library(pdftools)
 library(textdata)
-
+library(kableExtra)
+library(janitor)
+library(terra)
+library(tidyterra)
 
 ################ DATA ###############################################
 #### for the tmap
@@ -28,7 +31,7 @@ fires_tmap_sf <- fires_all_sf %>%
   select(year, fire_month, day, area_ha, county, island, geometry)
 
 
-##### for the seasons plot
+##### for the seasons plot ###########################
 
 fires_df <- st_drop_geometry(fires_all_sf) %>%
   group_by(year, month) %>%
@@ -61,6 +64,8 @@ head(stop_words)
 
 wordcount_clean_2023 <- p_2023_lines %>%
   anti_join(stop_words, by = 'word')
+
+
 
 ######2024
 p_2024_lines <- data.frame(policy_2024_text) %>%
@@ -98,38 +103,73 @@ p_2024_counts <- p_2024_nrc %>%
   mutate(percent = (n/sum(n))*100)
 
 
+#########################Ignitions Data###################
+#load data
+st_layers(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"))
+
+big_island <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "bigisland")
+
+fires <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "firesbigisland")
+
+layer3 <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "ignitionpoints_bigisland")
+
+
+
 
 ############# USER INTERFACE ########################################
 
 ui <- fluidPage(
   theme = bs_theme(bootswatch = 'journal'),
-  titlePanel("Land Use Changes and Fires for the Islands of Hawai'i"),
+  titlePanel("Land Use Changes and Fires for the Islands of Hawai‘i"),
   tabsetPanel(
     tabPanel(
       title = 'Introduction',
       p(style = "font-size = 12px",
         "Fires in Hawai‘i are unique to the rest of the country because they occur year around (Trauernicht et al. 2015). Hawai‘i also has a high burn area in relation to total land mass, and many times higher than the US mainland or the western states (Trauernicht et al. 2015). Figure () shows the percent of land area that burned for the years 2005 to 2011 for  Hawai‘i, the US mainland and the Western States. For 2005, 2007, and 2010,  Hawai‘i had a higher percent of land area burned than the rest of the US. So why doesn’t  Hawai‘i get more attention when it comes to fires and why is there not more done to prevent or prepare for fires?"),
       img(src = "Precent_land.jpg",
-          width = 550,
-          height = 430),
-      p(style = "font-size = 12px", "The August 2023 fire that occured in Lahaina was the most deadly fire in the United States in more than a century, killing 100 people and destroying most of the historic town of Lahaina (NPR). The cause of the fire was a deadly mixture of, climate change fueled drought, strong winds, major changes in land usage from historic conditions to agriculture, failed infrastructure, invasive species, and a lack of fire preparation (CBS). The 80 mph winds knock down live power lines that sparked the initial fire. The electrical company should have shut off the power knowing that there was going to be extremely strong winds. Fire Fighters thought that they had contained the fire. They left to fight other fires on the island. The strong winds reactivated the initial fire and spread."),
+          width = 750,
+          height = 630),
+      p(style = "font-size = 12px", "Figure 1:  The percent of area burned for each year from 1904 to 2022."),
+      img(src = "IMG_0496.jpeg",
+          width = 800,
+          height = 630),
+      p(style = "font-size = 12px", "Figure 2:  The percent of area burned for Hawai'i, the US mainland, and the Western United states from 2005 to 2011 (Trauernicht et al., 2015))."),
+      p(style = "font-size = 12px", "The Lahaina fire that occurred August 2023 was the most deadly fire in the United States in more than a century, killing 100 people and destroying most of the historic town of Lahaina (NPR). The cause of the fire was a deadly mixture of, climate change fueled drought, strong winds, major changes in land usage from historic conditions to agriculture, failed infrastructure, invasive species, and a lack of fire preparation (CBS). The 80 mph winds knock down live power lines that sparked the initial fire. The electrical company should have shut off the power knowing that there was going to be extremely strong winds. Fire Fighters thought that they had contained the fire. They left to fight other fires on the island. If there had been more infrastructure for fighting fires, they would have been able to stay to make sure the fire was put out all the way. The strong winds reactivated the initial fire and spread. Fewer lives would have been lost if there were more than one road out of town. The highway got blocked forcing people to try to flee on foot. Many went to the shore and the water to try to escape the flames. Aid also did not get to Lahaina quickly enough after. Part of this is because it’s hard to transport supplies from the mainland or even from the other islands. If there had been more disaster supplies stored on Maui, aid could have gotten to the survivors more quickly."),
+      img(src = "IMG_0497.jpeg",
+          width = 800,
+          height = 630),
+      p(style = "font-size = 12px", "Figure 3: An image of Lahaina from before the fire (Apple Maps)."),
+      img(src = "IMG_0499.jpeg",
+          width = 800,
+          height = 630),
+      p(style = "font-size = 12px", "Figure 5: A zoomed in image of the harbor area of Lahaina from after the fire (Google Maps)."),
+      img(src = "IMG_0500.jpeg",
+          width = 800,
+          height = 630),
+      p(style = "font-size = 12px", "Figure 6: A zoomed image of the harbor area of Lahaina from before the fire (Apple Maps)."),
+      img(src = "IMG_0502.jpeg",
+          width = 800,
+          height = 630),
+      p(style = "font-size = 12px", "Figure 4: An image of Lahaina from after the fire (Google Maps)."),
       p(style = "font-size = 12px", "Since last year’s fires on Maui and the loss of Lahaina, the threat of fires in Hawai‘i has gained more attention from the general public. The demand for accountability of the causes and for policy makers to take action has increased. Even after 6 months, the clean up and rebuilding of the town is still underway and officials estimate a full rebuild of the area could take 5 years (NPR). Many businesses and families have had to move to other parts of Maui, other islands and some even out of state. This fire was devastating to Hawai‘i and was a wake up call for the state and the country."),
+      p(style = "font-size = 12px", "The Lahaina fire also had major environmental justice implications. About 15% of Maui’s homes are rented out as short term vacation rentals, very few of which are legal. In addition, about 52% of the illegal short term vacation rentals are owned by people out of state. This has increased the rent for residents by about 5% (Hawaii Civic Beat). This ends up forcing many of the victims of the Lahaina fire to move away from Maui or away from Hawai‘i. There are several proposed bills in this legislation session that are designed to help fix this issue. If they pass, is another question."),
       p(style = "font-size = 12px", "The Lahaina fire was the wake up call for Hawai‘i that it has a fire problem and this has begun to be reflected in policy. On Friday, March 8th the U.S. Department of Homeland security announced the deployment of new technology across Hawai‘i that would detect and alert authorities of fires quicker (StarAdvetiser).  This year, Hawai‘i’s legislators proposed 52 bills that directly related to climate change, fire management and emergency fire preparedness. In comparison, 16 bills were proposed in the 2023 legislation session. The Political Response: Text Analysis tab goes into sentiment analysis of the climate change, fire management and emergency fire preparedness of the 2023 and 2024 Hawai‘i State bills."),
-      p(style = "font-size = 12px", "Fires Map Tab:"),
-      p(style = "font-size = 12px", "Seasonality Tab:"),
-      p(style = "font-size = 12px", "Political Response: Text Analysis Tab: This tab shows the results of the text analysis of the bill proposed in 2023 and 2024 for the state of Hawai‘i. The bills included in this analysis were about fire prevention, management, and recovery management as well as any bill relating to climate change adaptation in general. The climate change bills were included because in the future extreme weather events such as drought is expected to occur increasing the risk of fire (Otto 2023)."),
-      p(style = "font-size = 12px", "Land Use Tab:")
+      p(style = "font-size = 12px", strong("Fires Map Tab:"), "This tab shows the area burned for each year and it’s location on the map. You can compare the size and location of the fires for the years 1999 to 2022."),
+      p(style = "font-size = 12px", strong("Seasonality Tab:"),"This tab shows the time of year the fires took place from 1999 to 2022. You can compare different years."),
+      p(style = "font-size = 12px", strong("Political Response:"), "Text Analysis Tab: This tab shows the results of the text analysis of the bill proposed in 2023 and 2024 for the state of Hawai‘i. The bills included in this analysis were about fire prevention, management, and recovery management as well as any bill relating to climate change adaptation in general. The climate change bills were included because in the future extreme weather events such as drought is expected to occur increasing the risk of fire (Otto 2023)."),
+      p(style = "font-size = 12px", strong("Ignitions:"),"")
     ), ################################################ END OF TAB 1
 
     tabPanel(
       title = "Fires Map",
       fluidPage(
-        fluidRow(p(style = "font-size = 10px", "This interactive map shows the Hawaiian Islands and the area of burn for each year from 1999 to 2022. You can select any year or multiple years and it will display every fire of that year, where it occured and the total land area that the fire burned."),
+        fluidRow(p(style = "font-size = 10px", "This interactive map shows the Hawaiian Islands and the area of burn for each year from 1999 to 2022. You can select any year or multiple years and it will display every fire of that year, where it occured and the total land area that the fire burned. You can also change the background on the map to see differt landscapes."),
           column(width = 4,
                  selectInput("year_tmap", "Choose Year",
                    choices = fires_tmap_sf$year %>% unique() %>% sort(),
                    selected = "1999", multiple = TRUE, selectize = TRUE
-                 )
+                 ),
+                 p(style = "font-size = 12px", strong("Analysis"),"Hawai‘i Island had the largest fires. There were more fires on the west sides of the islands than the east sides. This tracks with precipitation rates, which are heavier on the east sides of all of the islands.")
                ), #End of column 1 tab 2
           column(width = 8,
                  h3('Map'),
@@ -150,7 +190,7 @@ ui <- fluidPage(
                  ), p(style = "font-size = 12px", "On average, fires were more previlent and larger during the summer months.")
           ), #End of column 1 tab 3
           column(width = 8,
-                 h3('Seasonal Plots of Fires From 1999 to 2022'),
+                 h4('Seasonal Plots of Fires From 1999 to 2022'),
                  plotOutput(outputId = 'seasonal_plot')
           ) #End of column 2 tab 3
         )#End of fluid row tab 3
@@ -165,28 +205,33 @@ ui <- fluidPage(
                  p(style = "font-size = 12px", "Talk about the sentiment analysis"),
         fluidRow(
           column(width = 4,
-                 h3('Choose any word or phrase and it will tell you how many times it occurs in the pollicy for 2023 or 2024'),
+                 h5('Choose any word or phrase and it will tell you how many times it occurs in the pollicy for 2023 or 2024. Make sure to put any words in undercase.'),
                  textInput("text_analysis_inputID", label = h3("Text input"), value = "Enter key word"),
 
-                 hr(),
-                 fluidRow(column(3, verbatimTextOutput("value")))
           ), #End of column 1 tab 4
           column(width = 8,
-                 h3('column 2 header'),
+                 h5('The Number of Times a Word was in the 2023 and 2024 Bills'),
+                 tableOutput('text_analysis')
+
 
           ) #End of column 2 tab 4
         )#End of fluid row tab 4
       ) #End of fluid page tab 4
     ), ############################################# END OF TAB 4
     tabPanel(
-      title = "Land Use",
+      title = "Ignitions",
       fluidPage(
         fluidRow(
           column(width = 4,
                  h3('column 1 header'),
+                 radioButtons(inputId = "ignitions_inputId",
+                              label= "Choose Years to Compare",
+                              choices = c("2005", "2006", "2007", "2008", "2009","2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"),
+                              selected = NULL)
           ), #End of column 1 tab 4
           column(width = 8,
                  h3('column 2 header'),
+                 plotOutput(outputId = "ignition_plot")
           ) #End of column 2 tab 4
         )#End of fluid row tab 4
       ) #End of fluid page tab 4
@@ -215,7 +260,7 @@ server <- function(input, output) {
   output$fires_plot <- renderTmap({
     tmap_mode(mode = "view")
     tm_shape(year_tmap()) +
-      tm_fill("area_ha", palette = "OrRd") +
+      tm_fill("area_ha", palette = c("orange","red","darkred")) +
       tm_layout(title = "Fires by Area for the Islands of Hawai'i 1999-2022", title.size = 1)
   }) #### end of tmap plot
 
@@ -234,7 +279,43 @@ server <- function(input, output) {
            title = 'Seansonality Trends') +
       theme_classic()
   }) ######### End of Season plot output
-  output$value <- renderPrint({ text_analysis_inputID$text }) ########### End of Text Analysis output
+  text_function <- reactive({
+    text_filter_2023 <- wordcount_clean_2023 %>%
+      filter(word == input$text_analysis_inputID)
+    return(text_filter_2023)
+
+  })
+  text_function_2 <- reactive({
+    text_filter_2024 <- wordcount_clean_2024 %>%
+      filter(word == input$text_analysis_inputID)
+    return(text_filter_2024)
+  })##### End of Text Analysis reactive
+  output$text_analysis <- renderTable({
+    output_2023 <- nrow(text_function())
+    output_2024 <- nrow(text_function_2())
+
+    word_count_df <- data.frame(year_2023 = output_2023, year_2024 = output_2024)
+    word_count_df %>%
+      kbl(caption = "The Number of Times a Word was in the 2023 and 2024 Bills") %>%
+      kable_classic(full_width = F,
+                    html_font = "Cabria") %>% print
+    word_count_df
+
+
+    }) ########### End of Text Analysis output
+
+  ingitions_reactive <- reactive({
+    layer3 <- year %>%
+      filter(year %in% as.integer(input$ignitions_inputId))
+    return(layer3)
+  }) ####### End of ignitions reactive
+  output$ignition_plot <- renderPlot({
+    ggplot(data = ingitions_reactive()) +
+      geom_sf(data = big_island) +
+      geom_sf(data = fires, aes(fill = Year))  +
+      geom_sf(data = layer3, color = "white", size = 0.1) + theme_void() +
+      labs(title = "Ignitions and fire perimeters in Hawaii - The Big Island (1999-2022)")
+  }) ###### end of ignitions plot
 }
 
 

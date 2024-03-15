@@ -1,0 +1,74 @@
+---
+title: "LandcoverIvette"
+format: html
+editor: visual
+---
+
+## Spatial distribution of fire impact in Land cover in The Big Island of Hawaii
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+rm(list = ls())
+library(sf)
+library(tidyverse)
+library(here)
+library(terra)
+library(tidyterra)
+library(shiny)
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+st_layers(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"))
+
+big_island <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "bigisland")
+
+fires <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "firesbigisland")
+
+layer3 <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "ignitionpoints_bigisland")
+
+```
+
+```{r}
+st_layers(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"))
+```
+
+```{r}
+big_island <- st_read(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"), layer = "bigisland")
+
+
+fires <- st_read(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"), layer = "firesbigisland")
+
+layer3 <- st_read(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"), layer = "ignitionpoints_bigisland") 
+
+
+# Geom_sf for sf class objects and vectors 
+# geom_tile for objects of class SpatRaster, RasterLayer, SpatVector 
+ggplot() + 
+  geom_sf(data = big_island) +
+  geom_sf(data = fires, aes(fill = Year))  +
+  geom_sf(data = layer3, color = "white", size = 0.1) + theme_void() +
+  labs(title = "Ignitions and fire perimeters in Hawaii - The Big Island (1999-2022)")
+
+
+
+  
+# upload the raster.tif take out of the geodatabase. 
+
+```
+
+```{r}
+ui < fluidpage
+server <- function (input, output) 
+    titlePanel("Big Island Fires Map")
+{layer filter (ignition points= )}
+
+```

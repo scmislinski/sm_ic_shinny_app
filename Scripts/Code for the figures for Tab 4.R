@@ -33,3 +33,4 @@ ggsave(here("Plots", "Precent_land.png"), fires_percentage_gg, width=6,
 combined_graphs <- (fires_max_area_gg + fires_percentage_gg)
 combined_graphs
 
+
