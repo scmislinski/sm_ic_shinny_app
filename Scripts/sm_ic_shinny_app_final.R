@@ -125,7 +125,9 @@ ui <- fluidPage(
     tabPanel(
       title = 'Introduction',
       p(style = "font-size = 12px",
-        "Fires in Hawai‘i are unique to the rest of the country because they occur year around (Trauernicht et al. 2015). Hawai‘i also has a high burn area in relation to total land mass, and many times higher than the US mainland or the western states (Trauernicht et al. 2015). Figure () shows the percent of land area that burned for the years 2005 to 2011 for  Hawai‘i, the US mainland and the Western States. For 2005, 2007, and 2010,  Hawai‘i had a higher percent of land area burned than the rest of the US. So why doesn’t  Hawai‘i get more attention when it comes to fires and why is there not more done to prevent or prepare for fires?"),
+        "In Hawai'i, wildland fire occurs frequently and extensively across the state. In Hawaiʻi, approximately 90% of wildfires are due to anthropogenic factors (Hawai'i Department of Natural Resources). The natural conditions in which the majority of the largest fires are produced are dry rural areas with low precipitation (Pacific Fire Exchange, 2023).  Fires in Hawai‘i are different from the rest of the country because they occur year around (Trauernicht et al. 2015). Hawai‘i also has a high burn area in relation to total land mass, and for some years this percentage is higher than the US mainland or the western states (Trauernicht et al. 2015)."),
+      p(style = "font-size = 12px",
+        "Figure 2 shows the percent of land area that burned for the years 2005 to 2011 for  Hawai‘i, the US mainland and the Western States. For 2005, 2007, and 2010,  Hawai‘i had a higher percent of land area burned than the rest of the US. The total percentage of land area burned is also increasing for Hawai‘i (figure 1). Fire is an ecological process and non managed fires can impact significantly in human lives, economic costs, biodiversity and forest loss. So why doesn’t  Hawai‘i get more attention when it comes to fires and why is there not more done to prevent or prepare for fires?"),
       img(src = "Precent_land.jpg",
           width = 750,
           height = 630),
@@ -134,7 +136,7 @@ ui <- fluidPage(
           width = 800,
           height = 630),
       p(style = "font-size = 12px", "Figure 2:  The percent of area burned for Hawai'i, the US mainland, and the Western United states from 2005 to 2011 (Trauernicht et al., 2015))."),
-      p(style = "font-size = 12px", "The Lahaina fire that occurred August 2023 was the most deadly fire in the United States in more than a century, killing 100 people and destroying most of the historic town of Lahaina (NPR). The cause of the fire was a deadly mixture of, climate change fueled drought, strong winds, major changes in land usage from historic conditions to agriculture, failed infrastructure, invasive species, and a lack of fire preparation (CBS). The 80 mph winds knock down live power lines that sparked the initial fire. The electrical company should have shut off the power knowing that there was going to be extremely strong winds. Fire Fighters thought that they had contained the fire. They left to fight other fires on the island. If there had been more infrastructure for fighting fires, they would have been able to stay to make sure the fire was put out all the way. The strong winds reactivated the initial fire and spread. Fewer lives would have been lost if there were more than one road out of town. The highway got blocked forcing people to try to flee on foot. Many went to the shore and the water to try to escape the flames. Aid also did not get to Lahaina quickly enough after. Part of this is because it’s hard to transport supplies from the mainland or even from the other islands. If there had been more disaster supplies stored on Maui, aid could have gotten to the survivors more quickly."),
+      p(style = "font-size = 12px", "The Lahaina fire that occurred August 2023 was the most deadly fire in the United States in more than a century, killing 100 people and destroying most of the historic town of Lahaina (NPR). Figures 3, 4, 5, and 6 show before and after satellite images of Lahaina. The cause of the fire was a deadly mixture of, climate change fueled drought, strong winds, major changes in land usage from historic conditions to agriculture, failed infrastructure, invasive species, and a lack of fire preparation (CBS). The 80 mph winds knock down live power lines that sparked the initial fire. The electrical company should have shut off the power knowing that there was going to be extremely strong winds. Fire Fighters thought that they had contained the fire. They left to fight other fires that had started on the island. If there had been more infrastructure for fighting fires, they would have been able to stay to make sure the fire in Lahaina was put out all the way. The strong winds were able to reactivate the initial fire and it spread. Fewer lives would have been lost if there were more than one road out of town. The highway got blocked forcing people to try to flee on foot. Many went to the shore and the water to try to escape the flames. Aid also did not get to Lahaina quickly enough after. Part of this is because it’s hard to transport supplies from the mainland or even from the other islands. If there had been more disaster supplies stored on Maui, aid could have gotten to the survivors more quickly."),
       img(src = "IMG_0497.jpeg",
           width = 800,
           height = 630),
@@ -151,13 +153,13 @@ ui <- fluidPage(
           width = 800,
           height = 630),
       p(style = "font-size = 12px", "Figure 4: An image of Lahaina from after the fire (Google Maps)."),
-      p(style = "font-size = 12px", "Since last year’s fires on Maui and the loss of Lahaina, the threat of fires in Hawai‘i has gained more attention from the general public. The demand for accountability of the causes and for policy makers to take action has increased. Even after 6 months, the clean up and rebuilding of the town is still underway and officials estimate a full rebuild of the area could take 5 years (NPR). Many businesses and families have had to move to other parts of Maui, other islands and some even out of state. This fire was devastating to Hawai‘i and was a wake up call for the state and the country."),
-      p(style = "font-size = 12px", "The Lahaina fire also had major environmental justice implications. About 15% of Maui’s homes are rented out as short term vacation rentals, very few of which are legal. In addition, about 52% of the illegal short term vacation rentals are owned by people out of state. This has increased the rent for residents by about 5% (Hawaii Civic Beat). This ends up forcing many of the victims of the Lahaina fire to move away from Maui or away from Hawai‘i. There are several proposed bills in this legislation session that are designed to help fix this issue. If they pass, is another question."),
-      p(style = "font-size = 12px", "The Lahaina fire was the wake up call for Hawai‘i that it has a fire problem and this has begun to be reflected in policy. On Friday, March 8th the U.S. Department of Homeland security announced the deployment of new technology across Hawai‘i that would detect and alert authorities of fires quicker (StarAdvetiser).  This year, Hawai‘i’s legislators proposed 52 bills that directly related to climate change, fire management and emergency fire preparedness. In comparison, 16 bills were proposed in the 2023 legislation session. The Political Response: Text Analysis tab goes into sentiment analysis of the climate change, fire management and emergency fire preparedness of the 2023 and 2024 Hawai‘i State bills."),
+      p(style = "font-size = 12px", "Since last year’s fires on Maui and the loss of Lahaina, the threat of fires in Hawai‘i has gained more attention from the general public. The demand for accountability of the causes and for policy makers to take action has increased. Even after 6 months, the clean up and rebuilding of the town is still underway and officials estimate a full rebuild of the area could take 5 years (NPR). Many businesses and families have had to move to other parts of Maui, other islands and some even out of state. This is heartbreaking because some of the families forced to leave had lived on Maui or in Lahaina for centuries."),
+      p(style = "font-size = 12px", "The Lahaina fire also had major environmental justice implications. About 15% of Maui’s homes are rented out as short term vacation rentals, very few of which are legal. In addition, about 52% of the illegal short term vacation rentals are owned by people out of state. This has increased the rent for residents by about 5% (Hawai'i Civic Beat). This ends up forcing many residents and the victims of the Lahaina fire to move away from Maui or away from Hawai‘i. There are several proposed bills in this legislation session that are designed to help fix this issue. Even if they do pass, there has been a history of very little enforcement of illegal vacation rentals in Hawai‘i (Hawaii Civic Beat)."),
+      p(style = "font-size = 12px", "A question that many residents had after the Lahaina fire was if legislators would finally take the fire risk in Hawai‘i and climate change seriously. It does appear that the Lahaina fire has had an effect and has begun to be reflected in policy. On Friday, March 8th the U.S. Department of Homeland Security announced the deployment of new technology across Hawai‘i that would detect and alert authorities of fires quicker (StarAdvetiser).  This year, Hawai‘i’s legislators proposed 52 bills that directly related to climate change, fire management and emergency fire preparedness. In comparison, 16 bills were proposed in the 2023 legislation session. Hopefully, many of the bills pass and are effectively implemented to help prevent fires, and when they do occur, to be able to quickly extinguish them."),
       p(style = "font-size = 12px", strong("Fires Map Tab:"), "This tab shows the area burned for each year and it’s location on the map. You can compare the size and location of the fires for the years 1999 to 2022."),
       p(style = "font-size = 12px", strong("Seasonality Tab:"),"This tab shows the time of year the fires took place from 1999 to 2022. You can compare different years."),
       p(style = "font-size = 12px", strong("Political Response:"), "Text Analysis Tab: This tab shows the results of the text analysis of the bill proposed in 2023 and 2024 for the state of Hawai‘i. The bills included in this analysis were about fire prevention, management, and recovery management as well as any bill relating to climate change adaptation in general. The climate change bills were included because in the future extreme weather events such as drought is expected to occur increasing the risk of fire (Otto 2023)."),
-      p(style = "font-size = 12px", strong("Ignitions:"),"")
+      p(style = "font-size = 12px", strong("Ignitions:"),"This section helps users to assess the relationship between ignitions and fires, especially the most significant in terms of extension.  It provides information about two variables: the geographical location of fires (points) from 2005 to 2020 and the fire perimeters that occurred between 1999 and 2022 in The Big Island.")
     ), ################################################ END OF TAB 1
 
     tabPanel(
@@ -187,7 +189,7 @@ ui <- fluidPage(
                  selectInput("year_season", "Choose Year",
                              choices = fires_ts$year %>% unique() %>% sort(),
                              selected = "1999", multiple = TRUE, selectize = TRUE
-                 ), p(style = "font-size = 12px", "On average, fires were more previlent and larger during the summer months.")
+                 ), p(style = "font-size = 12px", "Fires occurred year around in Hawai‘i, however, the months that had the most fires were between June and September. There were four years that had major fires that were much larger in total area burned than the rest of the years. These years were 2005, 2018, 2021, and 2022. The fires occurred between June and September. 2021 had the highest area burned of all four years.")
           ), #End of column 1 tab 3
           column(width = 8,
                  h4('Seasonal Plots of Fires From 1999 to 2022'),
@@ -202,7 +204,18 @@ ui <- fluidPage(
       fluidPage( img(src = "sentiment_combined.jpg",
                      width = 650,
                      height = 550),
-                 p(style = "font-size = 12px", "Talk about the sentiment analysis"),
+                 p(style = "fon-size = 12px", "The sentiment analysis was done using the word-emotion association (NRC) lexicon. This lexicon associates words with eight basic emotions: anger, fear, anticipation, trust, surprise, sadness, joy, and disgust and the two sentiments of negative and positive. The NRC lexicon was used to test if the Lahaina fire impacted the legislators in how they wrote the bills. The emotions that we were most interested in were anger, fear, sadness, and negative. "),
+                 p(style = "font-size = 12px", strong("Anger Sentiment:"),"fell slightly from 2023 to 2024. The decrease was about 1%. This change is surprising and was expected to be higher in 2024 than 2023."),
+                 p(style = "font-size = 12px", strong("Anticipation Sentiment:"),"fell slightly from 2023 to 2024."),
+                 p(style = "font-size = 12px", strong("Disgust Sentiment:"),"rose slightly from 2023 to 2024. The rise was about half a percentage.
+Fear Sentiment: rose from 2023 to 2024. The rise was about 1.5 percent. This is not surprising that it rose. It suggests that the legislators do fear another fire and are more fearful of the impacts of climate change."),
+                 p(style = "font-size = 12px", strong("Fear Sentiment:"),"fell quite a bit from 2023 to 2024. This fall was about 2 and a half percent. This is not surprising given the impact Lahaina had on residents."),
+                 p(style = "font-size = 12px", strong("Joy Sentiment:"),"rose quite a bit from 2023 to 2024. This rise was about 3 percent."),
+                 p(style = "font-size = 12px", strong("Negative Sentiment:"),"fell from 2023 to 2024. This fall was about 3 percent."),
+                 p(style = "font-size = 12px", strong("Positive Sentiment:"),"fell from 2023 to 2024. This fall was about 3 percent."),
+                 p(style = "font-size = 12px", strong("Sadness Sentiment:"),"rose quite a bit from 2023 to 2024. This rise was about 3 percent. It’s not surprising that the legislators were more sad when writing the bills considering the Lahaina fire."),
+                 p(style = "font-size = 12px", strong("Surprise Sentiment:"),"almost doubled from 2023 to 2024. The trust sentiment fell slightly from 2023 to 2024. It is not surprising that the legislators, who’s primary knowledge is policy and not science, were surprised that the impacts of climate change and poor infrastructure finally had serious consequences. It’s unfortunate that the legislators did not heed the warnings from scientists about the threat that fires have in Hawai‘i."),
+                 p(style = "font-size = 12px", strong("Trust Sentiment:"),"fell a bit. The fall was about a percent. This sentiment is harder to figure out a potential cause. It could be that the legislators have less trust in the science, that their own bills will be strong enough to prevent another Lahaina, or even trust in themselves. This could show the self doubt of the legislators for not doing more to prevent the Lahaina fire."),
         fluidRow(
           column(width = 4,
                  h5('Choose any word or phrase and it will tell you how many times it occurs in the pollicy for 2023 or 2024. Make sure to put any words in undercase.'),
@@ -221,7 +234,7 @@ ui <- fluidPage(
     tabPanel(
       title = "Ignitions",
       fluidPage(
-        fluidRow(
+        fluidRow(p(style = "font-size = 12px", "Fires in Hawaii are mostly from human caused ignitions, land use legacies and change, and pronounced dry seasons and strong rain shadow effects However, wildfire management in Hawaii has only become part of the environmental agenda in the last few years, especially after the Lahaina fire occurred only in 2023. Wildfire management is a prominent challenge in the environmental agenda in the U.S. that has received attention in the last decades."),
           column(width = 4,
                  h3('column 1 header'),
                  radioButtons(inputId = "ignitions_inputId",
@@ -238,11 +251,25 @@ ui <- fluidPage(
     ), ############################################# End of tab 5
     tabPanel(
       title = "Citations",
+      p(style = "font-size = 12px", strong("Data was sourced from the Pacific Fire Exchange. Part of the Univeristy of Hawai'i Mānoa's Hawai'i Wildfire Managment Program. Data was also sourced from Hawai'i GIS Program and from the Hawai'i State Government Legislative Information Page.")),
       p(style = "font_size=5px",
-        "text here")
+        "Data: https://pacificfireexchange.org/region/hawaii/"),
+      p(style = "font_size=5px",
+        "Data: https://geoportal.hawaii.gov/search?collection=Dataset"),
+      p(style = "font_size=5px",
+        "Data: https://capitol.hawaii.gov"),
+      fluidRow(p(style = "font-size = 12px", "‘A Statewide Ban on Vacation Rentals? The Idea is Gaining Steam After the Maui Fires.’ Civil Beat, https://www.civilbeat.org/2024/02/a-statewide-ban-on-vacation-rentals-the-idea-is-gaining-steam-after-the-maui-fires/. Accessed 3 Mar. 2024."),
+               p(style = "font-size = 12px", "Otto, Friederike EL. ‘Attribution of Extreme Events to Climate Change.’  Annual Review of Environment and Resources 48 (2023): 813-828."),
+               p(style = "font-size = 12px", "‘Six Months Since Maui Fires, an Uncertain Economy.’ NPR, https://www.npr.org/2024/02/08/1230237974/six-months-since-maui-fires-an-uncertain-economy. Accessed 3 Mar. 2024."),
+               p(style = "font-size = 12px", "‘How did Maui fire start? Cause of Lahaina, Hawaii wildfire.’ CBS News, https://www.cbsnews.com/news/how-did-maui-fire-start-cause-lahaina-hawaii-wildfire/. Accessed 3 Mar. 2024."),
+               p(style = "font-size = 12px", "‘Wildfire detection sensors to be deployed on Maui and around state.’ Honolulu Star-Advertiser, https://www.staradvertiser.com/2024/03/09/hawaii-news/wildfire-detection-sensors-to-be-deployed-on-maui-and-around-state/. Accessed 3 Mar. 2024."),
+               p(style = "font-size = 12px", " Trauernicht, Clay, et al. ‘The contemporary scale and context of wildfire in Hawai‘i1.’ Pacific Science 69.4 (2015): 427-444."),
+               p(style = "font-size = 12px", "Department of Natural Resources Hawaii. Division of Forestry and Wildlife: Forestry Program. Fire management. https://dlnr.hawaii.gov/"),
+               p(style = "font-size = 12px", "")
+
     ), ############################################ END OF TAB 5
   ), #end of tabsetPanel
-)### End of fluidPage function
+))### End of fluidPage function
 
 
 
