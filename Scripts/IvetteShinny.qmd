@@ -38,16 +38,16 @@ layer3 <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App
 ```
 
 ```{r}
-st_layers(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"))
+st_layers(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"))
 ```
 
 ```{r}
-big_island <- st_read(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"), layer = "bigisland")
+big_island <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "bigisland")
 
 
-fires <- st_read(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"), layer = "firesbigisland")
+fires <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "firesbigisland")
 
-layer3 <- st_read(here::here("~/Desktop/ESM244/Lab/Shinny_project/sm_ic_shinny_app/Data/GIS - project/final/workingfinal1", "workingfinal1.gdb"), layer = "ignitionpoints_bigisland") 
+layer3 <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "ignitionpoints_bigisland") 
 
 
 # Geom_sf for sf class objects and vectors 

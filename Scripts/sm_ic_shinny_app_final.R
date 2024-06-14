@@ -113,7 +113,14 @@ fires <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/
 
 layer3 <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "ignitionpoints_bigisland")
 
+st_layers(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"))
 
+big_island <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "bigisland")
+
+
+fires <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "firesbigisland")
+
+layer3 <- st_read(here::here("~/Desktop/ESM 244 Advanced Data Science/Shinny App/sm_ic_shinny_app/Data/GIS final project_Ivette_Trace/Final Project ArcPro/workingfinal1", "workingfinal1.gdb"), layer = "ignitionpoints_bigisland")
 
 
 ############# USER INTERFACE ########################################
@@ -230,7 +237,7 @@ Fear Sentiment: rose from 2023 to 2024. The rise was about 1.5 percent. This is 
           ) #End of column 2 tab 4
         )#End of fluid row tab 4
       ) #End of fluid page tab 4
-    ), ############################################# END OF TAB 4
+    ), ############################################# END OF TAB 4 Ignitions
     tabPanel(
       title = "Ignitions",
       fluidPage(

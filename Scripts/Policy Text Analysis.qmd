@@ -6,6 +6,7 @@ editor: visual
 ---
 
 #Libraries
+
 ```{r}
 library(tidyverse)
 library(tidytext)
@@ -16,6 +17,7 @@ library(patchwork)
 ```
 
 #read in data
+
 ```{r}
 policy_2023_text <- pdftools::pdf_text(here('data', 'bills_2023_all.pdf'))
 
@@ -23,6 +25,7 @@ policy_2024_text <- pdftools::pdf_text(here('data', 'bills_2024_all.pdf'))
 ```
 
 Create Tokens
+
 ```{r}
 #######2023
 p_2023_lines <- data.frame(policy_2023_text) %>% 
@@ -55,6 +58,7 @@ wordcount_clean_2024 <- p_2024_lines %>%
 ```
 
 top ten words #not working might work after joining the sentiment word thing
+
 ```{r}
 top_5_2023_words <- wordcount_clean_2023 %>% 
   group_by(word) %>% 
@@ -62,9 +66,9 @@ top_5_2023_words <- wordcount_clean_2023 %>%
   slice(1:10) %>%
   ungroup()
 ```
- 
 
 Sentiment Annalysis
+
 ```{r}
 nrc_lex <- get_sentiments(lexicon = "nrc")
 
@@ -87,7 +91,9 @@ p_2024_counts <- p_2024_nrc %>%
   summarize(n = n()) %>%
   mutate(percent = (n/sum(n))*100)
 ```
+
 Sentiment graphs
+
 ```{r}
 ######2023
 sentiment_2023_plot <- ggplot(data = p_2023_counts, aes(x = sentiment, y = percent)) +
@@ -119,6 +125,3 @@ sentiment_combined
 ggsave(here("Plots", "sentiment_combined.jpg"), sentiment_combined, width=8,
        height=6, units="in", dpi=800)
 ```
-
-
-

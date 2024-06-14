@@ -19,7 +19,7 @@ fires_max_area_gg
 
 fires_percentage_gg <- ggplot(annual_fires, aes(x = year, y = percent_total_land_area)) +
   geom_col(fill = "darkred") +
-  labs(title = "Precent of Land Burned in Hawai'i from 1904 to 2022",
+  labs(title = "Percent of Land Burned in Hawai'i from 1904 to 2022",
        x = "Year",
        y = "Percent of Land Burned") +
   theme_classic()
